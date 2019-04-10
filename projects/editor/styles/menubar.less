@@ -1,0 +1,29 @@
+#AreaEditor_menubar {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  height: 38px;
+
+  & > .Panel {
+    position: relative;
+  }
+
+  .Panel .title {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .Panel {
+    .menu {
+      position: absolute;
+      padding: 8px;
+      background: #eee;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

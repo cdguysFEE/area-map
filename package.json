@@ -1,0 +1,31 @@
+{
+  "name": "area-map",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev:editor": "webpack-dev-server --config editor.dev.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "devDependencies": {
+    "@types/fabric": "^2.6.6",
+    "copy-webpack-plugin": "^5.0.1",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "fabric": "^2.7.0",
+    "rxjs": "^6.4.0"
+  },
+  "license": "ISC"
+}
