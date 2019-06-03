@@ -23,6 +23,7 @@ export class DrawManager {
     }
 
     drawEllipse() {
+        this.setAllUnSelectable()
         if (this.activeManager) {
             this.activeManager.destroy()
             this.activeManager = null
@@ -36,10 +37,23 @@ export class DrawManager {
     }
 
     selectMode() {
+        this.canvas.getObjects().forEach(obj => {
+            obj.setOptions({
+                selectable: true
+            })
+        })
         if (this.activeManager) {
             this.activeManager.destroy()
             this.activeManager = null
         }
+    }
+
+    setAllUnSelectable() {
+        this.canvas.getObjects().forEach(obj => {
+            obj.setOptions({
+                selectable: false
+            })
+        })
     }
 
 }

@@ -21,44 +21,48 @@ export class EllipseManager {
         this.canvas.setCursor('default')
     }
 
-    private onMouseDown = (option) => {
+    private onMouseDown = (e) => {
         this.isDrawing = true
-        this.initPos = option.pointer
+        this.initPos = e.pointer
         this.object = new fabric.Ellipse({
             rx: 0,
             ry: 0,
             fill: 'red',
-            top: option.pointer.y,
-            left: option.pointer.x,
+            top: e.pointer.y,
+            left: e.pointer.x,
         })
         this.canvas.add(this.object)
+        this.object.hoverCursor = 'crosshair'
     }
 
     private onMouseMove = (event) => {
         // todo: 当hover到canvas上时会被不知名的改成default
-        this.canvas.setCursor('crosshair')
+        // this.canvas.setCursor('crosshair')
         if (!this.isDrawing) return
         const currentPos = event.pointer
         const x = currentPos.x - this.initPos.x
         const y = currentPos.y - this.initPos.y
 
-        this.object.setOptions({
+        this.object.set({
             rx: Math.abs(x/2),
             ry: Math.abs(y/2)
         })
 
         // as x, y is smaller than 0 , so use '+'
         if (x < 0) {
-            this.object.setOptions({
+            this.object.set({
                 left: this.initPos.x + x,
             })
         }
 
         if ( y < 0) {
-            this.object.setOptions({
+            this.object.set({
                 top: this.initPos.y + y,
             })
         }
+
+        this.object.setCoords()
+        this.canvas.renderAll()
     }
 
     private onMouseUp = () => {

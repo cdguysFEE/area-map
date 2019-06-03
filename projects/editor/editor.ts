@@ -4,6 +4,7 @@ import { ToolPanel } from './tool-panel/tool-panel'
 import { RightPanel } from './right-panel/right-panel'
 import { UiDiv } from './core/ui/ui.div'
 import { DrawManager } from './managers/draw-manager'
+import { ColorPicker } from '../color-picker/color-picker'
 
 export interface EditorOption {
     container: HTMLDivElement,
@@ -15,6 +16,8 @@ export class Editor {
 
     constructor(private option: EditorOption) {
         this.buildLayout(option)
+        const color = new ColorPicker()
+
     }
 
     setCanvas() {
